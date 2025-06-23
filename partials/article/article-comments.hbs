@@ -1,7 +1,25 @@
 {{#if comments}}
-<div class="post-comments bg-gray-150 py-8">
-    <div class="mx-auto px-4 max-w-3xl">
-        {{comments title=(t "Discussion")}}
+    <div class="post-comments bg-gray-150 py-8">
+        <div class="mx-auto px-4 max-w-3xl">
+            <div id="giscus_container" style="margin-top: 50px;"></div>
+
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="enough-jainil/comments-algogist"
+                data-repo-id="R_kgDOO_4cWw"
+                data-category="General"
+                data-category-id="DIC_kwDOO_4cW84Cr1-j"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="en"
+                crossorigin="anonymous"
+                async
+            >
+            </script>
+        </div>
     </div>
-</div>
 {{/if}}
