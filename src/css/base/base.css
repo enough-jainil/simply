@@ -58,12 +58,13 @@ blockquote:not([class]) {
 cite,
 figcaption {
   @apply block
-    font-medium
+    font-normal
+    italic
     text-center
     text-gray-500
     text-sm;
 
-  @extend %font-sans;
+  @extend %font-serif;
 
   font-feature-settings: "liga" on, "lnum" on;
   line-height: 1.4em;
