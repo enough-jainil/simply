@@ -1,6 +1,5 @@
 const { series, watch, src, dest, parallel } = require("gulp");
 const pump = require("pump");
-const del = require("del");
 
 const rename = require("gulp-rename");
 const replace = require("gulp-replace");
@@ -9,11 +8,9 @@ const replace = require("gulp-replace");
 const livereload = require("gulp-livereload");
 const beeper = require("beeper");
 const postcss = require("gulp-postcss");
-const zip = require("gulp-zip");
 const gulpif = require("gulp-if");
 const sourcemaps = require("gulp-sourcemaps");
 const header = require("gulp-header");
-const imagemin = require("gulp-imagemin");
 
 // Babel
 const browserify = require("browserify");
@@ -61,8 +58,9 @@ const BuildComments = `/*!
  */`;
 
 // clean assets
-const clean = () => {
-  return del(["assets", "partials/styles", "dis"], { force: true });
+const clean = async () => {
+  const { deleteAsync } = await import("del");
+  return deleteAsync(["assets", "partials/styles", "dis"], { force: true });
 };
 
 function serve(done) {
@@ -158,7 +156,8 @@ function scripts(done) {
 }
 
 // Image
-function images(done) {
+async function images(done) {
+  const imagemin = (await import("gulp-imagemin")).default;
   pump(
     [src("src/img/**/*.*"), imagemin(), dest("assets/images"), livereload()],
     handleError(done)
@@ -192,8 +191,9 @@ function copyMainStyle(done) {
 }
 
 // ZIP
-function zipper(done) {
+async function zipper(done) {
   const filename = `${name}-v${version}.zip`;
+  const zip = (await import("gulp-zip")).default;
 
   pump(
     [

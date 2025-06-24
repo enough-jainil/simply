@@ -162,10 +162,7 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/line-clamp"),
-  ],
+  plugins: [require("@tailwindcss/typography")],
   content: ["./*.hbs", "./partials/**/*.hbs", "./src/js/**/*.js"],
   // safelist: [
   //   'hover:text-youtube',
