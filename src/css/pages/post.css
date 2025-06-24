@@ -1,6 +1,12 @@
 .godo-canvas {
   display: grid;
-  grid-template-columns: [full-start] minmax(4vmin,auto) [wide-start] minmax(auto,240px) [main-start] min(680px,calc(100% - 8vw)) [main-end] minmax(auto,240px) [wide-end] minmax(4vmin,auto) [full-end];
+  grid-template-columns: [full-start] minmax(4vmin, auto) [wide-start] minmax(
+      auto,
+      240px
+    ) [main-start] min(680px, calc(100% - 8vw)) [main-end] minmax(auto, 240px) [wide-end] minmax(
+      4vmin,
+      auto
+    ) [full-end];
 
   & > * {
     grid-column: main-start/main-end;
@@ -68,7 +74,7 @@
 
   /* List */
   li + li {
-    margin-top: .5em;
+    margin-top: 0.5em;
   }
 
   ul,
@@ -90,7 +96,7 @@
 
   ul > li::before {
     content: "\2022";
-    opacity: .9;
+    opacity: 0.9;
     transform: scale(1.1);
   }
 

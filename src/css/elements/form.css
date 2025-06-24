@@ -2,7 +2,7 @@ $input-background: hsl(0, 0%, 96%);
 
 $input-focus-box-shadow-size: 0 0.625rem 1.25rem;
 
-$input-focus-box-shadow-color: rgba(0, 0, 0, .1);
+$input-focus-box-shadow-color: rgba(0, 0, 0, 0.1);
 
 $input-disabled-background-color: $input-background;
 $input-disabled-border-color: $input-background;

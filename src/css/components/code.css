@@ -8,8 +8,8 @@ $blue: #3eb0ef;
   background: $whitegrey;
   text-shadow: none;
   color: $darkgrey;
-  font-size: .875em;
-  padding: .2rem .33rem;
+  font-size: 0.875em;
+  padding: 0.2rem 0.33rem;
   vertical-align: 1%;
 }
 
@@ -32,7 +32,9 @@ pre {
     background: transparent;
     white-space: pre;
 
-    * { color: inherit; }
+    * {
+      color: inherit;
+    }
   }
 }
 
@@ -67,8 +69,8 @@ pre[class*="language-"] {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  padding: .3em .4em;
-  border-radius: .3em;
+  padding: 0.3em 0.4em;
+  border-radius: 0.3em;
   white-space: normal;
   background: $whitegrey;
   text-shadow: none;
@@ -92,7 +94,7 @@ a > code[class*="language-"] {
 }
 
 .namespace {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .token.property,

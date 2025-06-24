@@ -1,73 +1,75 @@
 /* global followSocialMedia menuDropdown localStorage */
 
 // lib
-import 'lazysizes'
+import "lazysizes";
 
 // import loadScript from './util/load-script'
-import urlRegexp from './util/url-regular-expression'
-import docSelectorAll from './util/document-query-selector-all'
+import urlRegexp from "./util/url-regular-expression";
+import docSelectorAll from "./util/document-query-selector-all";
 
 const simplySetup = () => {
-  const rootEl = document.documentElement
-  const documentBody = document.body
+  const rootEl = document.documentElement;
+  const documentBody = document.body;
 
   /* Menu DropDown
   /* ---------------------------------------------------------- */
   const dropDownMenu = () => {
     // Checking if the variable exists and if it is an object
-    if (typeof menuDropdown !== 'object' || menuDropdown === null) return
+    if (typeof menuDropdown !== "object" || menuDropdown === null) return;
 
     // check if the box for the menu exists
-    const $dropdownMenu = document.querySelector('.js-dropdown-menu')
-    if (!$dropdownMenu) return
+    const $dropdownMenu = document.querySelector(".js-dropdown-menu");
+    if (!$dropdownMenu) return;
 
     Object.entries(menuDropdown).forEach(([name, url]) => {
-      if (name !== 'string' && !urlRegexp(url)) return
+      if (name !== "string" && !urlRegexp(url)) return;
 
-      const link = document.createElement('a')
-      link.href = url
-      link.classList = 'dropdown-item block py-2 leading-tight px-5 hover:text-primary'
-      link.innerText = name
+      const link = document.createElement("a");
+      link.href = url;
+      link.classList =
+        "dropdown-item block py-2 leading-tight px-5 hover:text-primary";
+      link.innerText = name;
 
-      $dropdownMenu.appendChild(link)
-    })
-  }
+      $dropdownMenu.appendChild(link);
+    });
+  };
 
-  dropDownMenu()
+  dropDownMenu();
 
   /* Social Media
   /* ---------------------------------------------------------- */
   const socialMedia = () => {
     // Checking if the variable exists and if it is an object
-    if (typeof followSocialMedia !== 'object' || followSocialMedia === null) return
+    if (typeof followSocialMedia !== "object" || followSocialMedia === null)
+      return;
 
     // check if the box for the menu exists
-    const $socialMedia = docSelectorAll('.js-social-media')
-    if (!$socialMedia.length) return
+    const $socialMedia = docSelectorAll(".js-social-media");
+    if (!$socialMedia.length) return;
 
-    const linkElement = element => {
+    const linkElement = (element) => {
       Object.entries(followSocialMedia).forEach(([name, urlTitle]) => {
-        const url = urlTitle[0]
+        const url = urlTitle[0];
 
         // The url is being validated if it is false it returns
-        if (!urlRegexp(url)) return
+        if (!urlRegexp(url)) return;
 
-        const link = document.createElement('a')
-        link.href = url
-        link.title = urlTitle[1]
-        link.classList = 'p-2 inline-block hover:opacity-70'
-        link.target = '_blank'
-        link.rel = 'noopener noreferrer'
-        link.innerHTML = `<svg class="icon"><use xlink:href="#icon-${name}"></use></svg>`
+        const link = document.createElement("a");
+        link.href = url;
+        link.title = urlTitle[1];
+        link.classList = "p-2 inline-block hover:opacity-70";
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.innerHTML = `<svg class="icon"><use xlink:href="#icon-${name}"></use></svg>`;
 
-        element.appendChild(link)
-      })
-    }
+        element.appendChild(link);
+      });
+    };
 
-    $socialMedia.forEach(linkElement)
-  }
+    $socialMedia.forEach(linkElement);
+  };
 
-  socialMedia()
+  socialMedia();
 
   /*  Toggle modal
   /* ---------------------------------------------------------- */
@@ -111,78 +113,89 @@ const simplySetup = () => {
   /* Header Transparency
   /* ---------------------------------------------------------- */
   const headerTransparency = () => {
-    const hasCover = documentBody.closest('.has-cover')
-    const $jsHeader = document.querySelector('.js-header')
+    const hasCover = documentBody.closest(".has-cover");
+    const $jsHeader = document.querySelector(".js-header");
 
-    window.addEventListener('scroll', () => {
-      const lastScrollY = window.scrollY
+    window.addEventListener(
+      "scroll",
+      () => {
+        const lastScrollY = window.scrollY;
 
-      if (lastScrollY > 5) {
-        $jsHeader.classList.add('shadow-header', 'header-bg')
-      } else {
-        $jsHeader.classList.remove('shadow-header', 'header-bg')
-      }
+        if (lastScrollY > 5) {
+          $jsHeader.classList.add("shadow-header", "header-bg");
+        } else {
+          $jsHeader.classList.remove("shadow-header", "header-bg");
+        }
 
-      if (!hasCover) return
+        if (!hasCover) return;
 
-      lastScrollY >= 20 ? documentBody.classList.remove('is-head-transparent') : documentBody.classList.add('is-head-transparent')
-    }, { passive: true })
-  }
+        lastScrollY >= 20
+          ? documentBody.classList.remove("is-head-transparent")
+          : documentBody.classList.add("is-head-transparent");
+      },
+      { passive: true }
+    );
+  };
 
-  headerTransparency()
+  headerTransparency();
 
   /* Dark Mode
   /* ---------------------------------------------------------- */
   const darkMode = () => {
-    const $toggleDarkMode = docSelectorAll('.js-dark-mode')
+    const $toggleDarkMode = docSelectorAll(".js-dark-mode");
 
-    if (!$toggleDarkMode.length) return
+    if (!$toggleDarkMode.length) return;
 
-    $toggleDarkMode.forEach(item => item.addEventListener('click', function (event) {
-      event.preventDefault()
+    $toggleDarkMode.forEach((item) =>
+      item.addEventListener("click", function (event) {
+        event.preventDefault();
 
-      if (!rootEl.classList.contains('dark')) {
-        rootEl.classList.add('dark')
-        localStorage.theme = 'dark'
-      } else {
-        rootEl.classList.remove('dark')
-        localStorage.theme = 'light'
-      }
-    }))
-  }
+        if (!rootEl.classList.contains("dark")) {
+          rootEl.classList.add("dark");
+          localStorage.theme = "dark";
+        } else {
+          rootEl.classList.remove("dark");
+          localStorage.theme = "light";
+        }
+      })
+    );
+  };
 
-  darkMode()
+  darkMode();
 
   /* DropDown Toggle
   /* ---------------------------------------------------------- */
   const dropDownMenuToggle = () => {
-    const dropdowns = docSelectorAll('.dropdown:not(.is-hoverable)')
+    const dropdowns = docSelectorAll(".dropdown:not(.is-hoverable)");
 
-    if (!dropdowns.length) return
+    if (!dropdowns.length) return;
 
     dropdowns.forEach(function (el) {
-      el.addEventListener('click', function (event) {
-        event.stopPropagation()
-        el.classList.toggle('is-active')
-        documentBody.classList.remove('has-menu')
-      })
-    })
+      el.addEventListener("click", function (event) {
+        event.stopPropagation();
+        el.classList.toggle("is-active");
+        documentBody.classList.remove("has-menu");
+      });
+    });
 
-    const closeDropdowns = () => dropdowns.forEach(function (el) {
-      el.classList.remove('is-active')
-    })
+    const closeDropdowns = () =>
+      dropdowns.forEach(function (el) {
+        el.classList.remove("is-active");
+      });
 
-    document.addEventListener('click', closeDropdowns)
-  }
+    document.addEventListener("click", closeDropdowns);
+  };
 
-  dropDownMenuToggle()
+  dropDownMenuToggle();
 
   /* Toggle Menu
   /* ---------------------------------------------------------- */
-  document.querySelector('.js-menu-toggle').addEventListener('click', function (e) {
-    e.preventDefault()
-    documentBody.classList.toggle('has-menu')
-  })
-}
+  document
+    .querySelector(".js-menu-toggle")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      documentBody.classList.toggle("has-menu");
+    });
+};
 
-document.addEventListener('DOMContentLoaded', simplySetup)
+document.addEventListener("DOMContentLoaded", simplySetup);

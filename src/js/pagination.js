@@ -1,39 +1,39 @@
-import InfiniteScroll from 'infinite-scroll'
+import InfiniteScroll from "infinite-scroll";
 
 (function (document) {
   // Next link Element
-  const nextElement = document.querySelector('link[rel=next]')
-  if (!nextElement) return
+  const nextElement = document.querySelector("link[rel=next]");
+  if (!nextElement) return;
 
   // Post Feed element
-  const $feedElement = document.querySelector('.js-feed-entry')
-  if (!$feedElement) return
+  const $feedElement = document.querySelector(".js-feed-entry");
+  if (!$feedElement) return;
 
-  const $viewMoreButton = document.querySelector('.load-more-btn')
+  const $viewMoreButton = document.querySelector(".load-more-btn");
   // const $iconLoader = $viewMoreButton.querySelector('.icon')
   // const $label = $viewMoreButton.querySelector('.label')
 
   const infScroll = new InfiniteScroll($feedElement, {
-    append: '.js-story',
+    append: ".js-story",
     button: $viewMoreButton,
     history: false,
     debug: false,
-    hideNav: '.pagination',
-    path: '.pagination .older-posts'
-  })
+    hideNav: ".pagination",
+    path: ".pagination .older-posts",
+  });
 
-  infScroll.on('load', onPageLoad)
+  infScroll.on("load", onPageLoad);
 
-  function onPageLoad () {
+  function onPageLoad() {
     if (infScroll.loadCount === 1) {
       // after 3nd page loaded
       // disable loading on scroll
-      infScroll.options.loadOnScroll = false
+      infScroll.options.loadOnScroll = false;
       // show button
-      $viewMoreButton.classList.add('flex')
-      $viewMoreButton.classList.remove('hidden')
+      $viewMoreButton.classList.add("flex");
+      $viewMoreButton.classList.remove("hidden");
       // remove event listener
-      infScroll.off(onPageLoad)
+      infScroll.off(onPageLoad);
     }
   }
 
@@ -47,12 +47,12 @@ import InfiniteScroll from 'infinite-scroll'
   //   $iconLoader.classList.add('hidden')
   // })
 
-  $viewMoreButton.addEventListener('click', function () {
+  $viewMoreButton.addEventListener("click", function () {
     // load next page
-    infScroll.loadNextPage()
+    infScroll.loadNextPage();
     // enable loading on scroll
-    infScroll.options.loadOnScroll = true
+    infScroll.options.loadOnScroll = true;
     // hide page
-    this.classList.add('hidden')
-  })
-})(document)
+    this.classList.add("hidden");
+  });
+})(document);

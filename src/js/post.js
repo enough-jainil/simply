@@ -1,11 +1,11 @@
 /* global prismJs */
 
-import './main'
+import "./main";
 
-import mediumZoom from 'medium-zoom'
+import mediumZoom from "medium-zoom";
 
-import loadScript from './util/load-script'
-import docSelectorAll from './util/document-query-selector-all'
+import loadScript from "./util/load-script";
+import docSelectorAll from "./util/document-query-selector-all";
 
 const simplyPost = () => {
   /* All Video Responsive
@@ -17,38 +17,40 @@ const simplyPost = () => {
       'iframe[src*="youtube.com"]',
       'iframe[src*="youtube-nocookie.com"]',
       'iframe[src*="player.twitch.tv"]',
-      'iframe[src*="kickstarter.com"][src*="video.html"]'
-    ]
+      'iframe[src*="kickstarter.com"][src*="video.html"]',
+    ];
 
-    const $iframes = docSelectorAll(selectors.join(','))
+    const $iframes = docSelectorAll(selectors.join(","));
 
-    if (!$iframes.length) return
+    if (!$iframes.length) return;
 
-    $iframes.forEach(el => {
-      el.classList.add('aspect-video', 'w-full')
+    $iframes.forEach((el) => {
+      el.classList.add("aspect-video", "w-full");
       // const parentForVideo = document.createElement('div')
       // parentForVideo.className = 'video-responsive'
       // el.parentNode.insertBefore(parentForVideo, el)
       // parentForVideo.appendChild(el)
-      el.removeAttribute('height')
-      el.removeAttribute('width')
-    })
-  }
+      el.removeAttribute("height");
+      el.removeAttribute("width");
+    });
+  };
 
-  videoResponsive()
+  videoResponsive();
 
   /* medium-zoom
   /* ---------------------------------------------------------- */
   const mediumZoomImg = () => {
-    docSelectorAll('.post-body img').forEach(el => !el.closest('a') && el.classList.add('simply-zoom'))
+    docSelectorAll(".post-body img").forEach(
+      (el) => !el.closest("a") && el.classList.add("simply-zoom")
+    );
 
-    mediumZoom('.simply-zoom', {
+    mediumZoom(".simply-zoom", {
       margin: 20,
-      background: 'hsla(0,0%,100%,.85)'
-    })
-  }
+      background: "hsla(0,0%,100%,.85)",
+    });
+  };
 
-  mediumZoomImg()
+  mediumZoomImg();
 
   /* Gallery Card
   /* ---------------------------------------------------------- */
@@ -70,9 +72,12 @@ const simplyPost = () => {
 
   /* highlight prismjs
   /* ---------------------------------------------------------- */
-  if (docSelectorAll('code[class*=language-]').length && typeof prismJs !== 'undefined') {
-    loadScript(prismJs)
+  if (
+    docSelectorAll("code[class*=language-]").length &&
+    typeof prismJs !== "undefined"
+  ) {
+    loadScript(prismJs);
   }
-}
+};
 
-document.addEventListener('DOMContentLoaded', simplyPost)
+document.addEventListener("DOMContentLoaded", simplyPost);

@@ -16,9 +16,12 @@
     "declaration-block-trailing-semicolon": "always",
     "declaration-colon-space-before": "never",
     "declaration-colon-space-after": "always",
-    "rule-empty-line-before": ["always-multi-line", {
-      "ignore": ["after-comment", "first-nested", "inside-block"]
-    }],
+    "rule-empty-line-before": [
+      "always-multi-line",
+      {
+        "ignore": ["after-comment", "first-nested", "inside-block"]
+      }
+    ],
     "media-feature-range-operator-space-before": "always",
     "media-feature-range-operator-space-after": "always",
     "media-feature-parentheses-space-inside": "never",

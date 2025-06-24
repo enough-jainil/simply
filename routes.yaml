@@ -6,7 +6,7 @@ routes:
 
   /featured/:
     controller: channel
-    filter: 'tag:-[hash-portfolio,hash-kusi-doc]'
+    filter: "tag:-[hash-portfolio,hash-kusi-doc]"
     limit: 12
     template: godo-template-featured
     # Optional for metada for seo
@@ -14,36 +14,36 @@ routes:
 
   /archive/:
     controller: channel
-    filter: 'tag:-[hash-portfolio,hash-kusi-doc]'
+    filter: "tag:-[hash-portfolio,hash-kusi-doc]"
     limit: all
     template: godo-archive
 
   /grid/:
     controller: channel
-    filter: 'tag:-[hash-portfolio,hash-kusi-doc]'
+    filter: "tag:-[hash-portfolio,hash-kusi-doc]"
     limit: 12
     template: godo-template-grid
 
   /sidebar/:
     controller: channel
-    filter: 'tag:-[hash-portfolio,hash-kusi-doc]'
+    filter: "tag:-[hash-portfolio,hash-kusi-doc]"
     limit: 12
     template: godo-template-sidebar
 
   /medium/:
     controller: channel
-    filter: 'tag:-[hash-portfolio,hash-kusi-doc]'
+    filter: "tag:-[hash-portfolio,hash-kusi-doc]"
     template: godo-template-medium
     limit: 14
 
   /featured-slider/:
     controller: channel
-    filter: 'tag:-[hash-portfolio,hash-kusi-doc]'
+    filter: "tag:-[hash-portfolio,hash-kusi-doc]"
     template: godo-template-featured-slider
 
   /photographer/:
     controller: channel
-    filter: 'tag:-[hash-portfolio,hash-kusi-doc]'
+    filter: "tag:-[hash-portfolio,hash-kusi-doc]"
     template: godo-template-photographer
     limit: 12
 
@@ -66,7 +66,7 @@ collections:
   # PortFolio
   /portafolio/:
     permalink: /portafolio/{slug}/
-    filter: 'tag:[hash-portfolio]'
+    filter: "tag:[hash-portfolio]"
     data: page.porftfolio
     template: godo-template-portfolio
     limit: all
@@ -74,7 +74,7 @@ collections:
   # Podcast
   /podcast/:
     permalink: /podcast/{slug}/
-    filter: 'tag:[hash-podcast]'
+    filter: "tag:[hash-podcast]"
     data: page.podcast
     template: godo-podcast
     limit: 10
@@ -82,13 +82,13 @@ collections:
   # Documentation
   /docs/:
     permalink: /docs/{slug}/
-    filter: 'tag:[hash-kusi-doc]'
+    filter: "tag:[hash-kusi-doc]"
     template: godo-home-kusi-doc
 
   # Default
   /:
     permalink: /{slug}/
-    filter: 'tag:-[hash-portfolio,hash-kusi-doc,hash-podcast]'
+    filter: "tag:-[hash-portfolio,hash-kusi-doc,hash-podcast]"
     template: index
 
 taxonomies:
