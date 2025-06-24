@@ -136,15 +136,6 @@
         "type": "image",
         "group": "homepage"
       },
-      "post_font": {
-        "type": "select",
-        "options": [
-          "font-sans",
-          "font-serif"
-        ],
-        "default": "font-serif",
-        "group": "post"
-      },
       "show_newsletter": {
         "type": "boolean",
         "default": false,
@@ -182,7 +173,7 @@
     "lint": "yarn lint:js && yarn lint:css",
     "test": "yarn lint && gscan .",
     "scan": "gscan .",
-    "deploy": "gulp deploy"    
+    "deploy": "gulp deploy"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -200,7 +191,7 @@
     "cssnano": "^5.1.12",
     "cssnano-preset-advanced": "^5.3.8",
     "del": "^6.1.1",
-    "dotenv": "^16.0.3",    
+    "dotenv": "^16.0.3",
     "gscan": "^4.31.2",
     "gulp": "^4.0.2",
     "gulp-header": "^2.0.9",

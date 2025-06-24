@@ -36,9 +36,7 @@
       - Publication cover color
       - Publication cover img
 - Post
-  - [Post Font](./settings.md#post-font)
-    - font-serif (default)
-    - font-sans
+  - Post Font - Now uses Ghost's brand font settings
   - [Newsletter](./settings.md#newsletter)
     - Show / Hide
     - Newsletter Text

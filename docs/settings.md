@@ -158,7 +158,13 @@ Simply is using the default [search of ghost](https://ghost.org/docs/themes/sear
 - Edit the file `./partials/layout/header.hbs` and uncomment this line
 
 ```handlebars
-<img src="{{img_url @site.logo size="m"}}" class="header-logo-img max-h-9 logo-default" alt="{{@site.title}}" width="115" height="30"/>
+<img
+  src="{{img_url @site.logo size="m"}}"
+  class="header-logo-img max-h-9 logo-default"
+  alt="{{@site.title}}"
+  width="115"
+  height="30"
+/>
 {{!-- <img src="{{asset "images/logo-dark-mode.png"}}" class="header-logo-img max-h-9 hidden logo-dark-mode" alt="" width="115" height="30"/> --}}
 ```
 
@@ -167,10 +173,14 @@ Simply is using the default [search of ghost](https://ghost.org/docs/themes/sear
 ```html
 <style>
   .is-head-transparent .logo-default,
-  .dark .logo-default { display: none !important }
+  .dark .logo-default {
+    display: none !important;
+  }
 
   .is-head-transparent:not(.has-menu) .logo-dark-mode,
-  .dark .logo-dark-mode { display: block }
+  .dark .logo-dark-mode {
+    display: block;
+  }
 </style>
 ```
 
@@ -200,9 +210,7 @@ You have 4 options to customize your home page.
 
 ## Post Font
 
-Choose font-sans or font-serif
-
-![post-font](https://user-images.githubusercontent.com/10253167/161645018-a33d4deb-cd31-443b-bc8e-6eaa73a2839e.jpg)
+~~This setting has been removed.~~ The theme now uses Ghost's built-in brand font settings. You can customize fonts from **Dashboard → Settings → Design → Brand**.
 
 ## Newsletter
 
@@ -230,51 +238,29 @@ If you need a quick way to make fully functional comments Simply has everything 
 
 ```handlebars
 <div id="post-comments" class="post-comments bg-gray-150 pt-8 pb-8">
-    <div class="mx-auto px-4 max-w-5xl">
-        {{!-- Disqus Comments --}}
-        <div id="disqus_thread"></div>
-    </div>
+  <div class="mx-auto px-4 max-w-5xl">
+    {{! Disqus Comments }}
+    <div id="disqus_thread"></div>
+  </div>
 </div>
 
 {{#contentFor "scripts"}}
-<script>
-(function(d, s, id) {
-    var disqus_config = function () {
-        this.page.url = '{{url absolute="true"}}';
-        this.page.identifier = 'ghost-{{comment_id}}';
-    };
-
-    function loadDisqus() {
-        var currentScroll = d.scrollingElement.scrollTop;
-        var disqusTarget = d.getElementById('disqus_thread');
-
-        if (d.getElementById(id)) return;
-
-        if( disqusTarget && (currentScroll > disqusTarget.getBoundingClientRect().top - 150) ) {
-            var js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://HERE_YOUR_DISQUS_SHORT_NAME.disqus.com/embed.js';
-            js.async = true;
-            js.defer = true;
-            js.setAttribute('data-timestamp', +new Date());
-            d.body.appendChild(js);
-
-            window.removeEventListener('scroll', loadDisqus);
-        }
-    }
-
-    window.addEventListener('scroll', loadDisqus);
-
-    document.querySelector('.js-dark-mode').addEventListener('click', function() {
-        if (window.DISQUS) {
-            DISQUS.reset({
-                reload: true,
-                config: disqus_config
-            });
-        }
-    });
-}(document, 'script', 'disqus-js'));
-</script>
+  <script>
+    (function(d, s, id) { var disqus_config = function () { this.page.url = '{{url
+      absolute="true"
+    }}'; this.page.identifier = 'ghost-{{comment_id}}'; }; function loadDisqus()
+    { var currentScroll = d.scrollingElement.scrollTop; var disqusTarget =
+    d.getElementById('disqus_thread'); if (d.getElementById(id)) return; if(
+    disqusTarget && (currentScroll > disqusTarget.getBoundingClientRect().top -
+    150) ) { var js = d.createElement(s); js.id = id; js.src =
+    'https://HERE_YOUR_DISQUS_SHORT_NAME.disqus.com/embed.js'; js.async = true;
+    js.defer = true; js.setAttribute('data-timestamp', +new Date());
+    d.body.appendChild(js); window.removeEventListener('scroll', loadDisqus); }
+    } window.addEventListener('scroll', loadDisqus);
+    document.querySelector('.js-dark-mode').addEventListener('click', function()
+    { if (window.DISQUS) { DISQUS.reset({ reload: true, config: disqus_config
+    }); } }); }(document, 'script', 'disqus-js'));
+  </script>
 {{/contentFor}}
 ```
 
@@ -292,14 +278,25 @@ Inside the file you have to delete all the content and add all the code that I l
 <div id="post-comments" class="post-comments bg-gray-150 pt-8 pb-8">
   <div class="mx-auto px-4 max-w-5xl">
     <div class="py-4 px-5">
-      <div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="5"></div>
+      <div
+        class="fb-comments"
+        data-href="{{url absolute="true"}}"
+        data-width="100%"
+        data-numposts="5"
+      ></div>
     </div>
   </div>
 </div>
 
 {{#contentFor "scripts"}}
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0" nonce="Jb8hW4cJ"></script>
+  <div id="fb-root"></div>
+  <script
+    async
+    defer
+    crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0"
+    nonce="Jb8hW4cJ"
+  ></script>
 {{/contentFor}}
 ```
 
@@ -325,13 +322,15 @@ Inside the file you have to delete all the content and add all the code that I l
 </div>
 
 {{#contentFor "scripts"}}
-<script type="text/javascript">
-  var HYVOR_TALK_WEBSITE = YOUR_WEBSITE_ID; // DO NOT CHANGE THIS
-  var HYVOR_TALK_CONFIG = {
-    url: "{{url absolute="true"}}",
-    id: "ghost-{{comment_id}}"
-  };
-</script>
-<script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script>
+  <script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = YOUR_WEBSITE_ID; // DO NOT CHANGE THIS var
+    HYVOR_TALK_CONFIG = { url: "{{url absolute="true"}}", id: "ghost-{{comment_id}}"
+    };
+  </script>
+  <script
+    async
+    type="text/javascript"
+    src="//talk.hyvor.com/web-api/embed"
+  ></script>
 {{/contentFor}}
 ```

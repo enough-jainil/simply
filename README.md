@@ -78,9 +78,7 @@
       - Publication cover color
       - Publication cover img
 - Post
-  - [Post Font](https://godofredo.ninja/ghost-theme/simply/settings/#postfont)
-    - font-serif (default)
-    - font-sans
+  - Post Font - Now uses Ghost's brand font settings
   - [Newsletter](https://godofredo.ninja/ghost-theme/simply/settings/#newsletter)
     - Show / Hide
     - Newsletter Text
@@ -163,26 +161,32 @@
 - Visit ghost admin page > settings > integrations
 - At the bottom of that page, click the button to `Add custom integration`
 - Name the new custom integration any thing you like - say - `automated-updates` and save.
-- Copy the Admin API key 
-- Create a file named `.env` in the theme folder 
+- Copy the Admin API key
+- Create a file named `.env` in the theme folder
 - Paste the Admin API key in the `.env` file as shown below.
-- Do not git commit push the `.env` file. 
+- Do not git commit push the `.env` file.
 - I have already made sure to .gitignore the `.env` file to make sure you don't accidentally spill your secret Admin API key.
 - Also, in the same `.env` file, replace the API URL - which the URL where your site is currently located
+
 ```
 GHOST_API_URL=https://domain.TLD
 GHOST_ADMIN_API_KEY=provideyouradminapikeyfromtheghostdashboard
 THEME_NAME=simply
 API_VERSION="v5.0"
 ```
-- run the following conmmand to deploy your theme updates to your ghost installation 
+
+- run the following conmmand to deploy your theme updates to your ghost installation
+
 ```
 yarn deploy
 ```
+
 or if you prefer npm over yarn
+
 ```
-npm run deploy 
+npm run deploy
 ```
+
 - You will see that the updates you made in the theme locally are now deployed and activated in your ghost setup.
 
 "Now you can iteratively edit, deploy, and test your theme without leaving your command line :)"
@@ -234,7 +238,7 @@ Become a financial contributor and help us sustain our community. [[Contribute](
 
 ## Sponsored
 
-- [Digital Ocean](https://m.do.co/c/710a27a3b3de) using my [referral link]((https://m.do.co/c/710a27a3b3de)) and you will get free a **$100 in credit valid for 60 days**
+- [Digital Ocean](https://m.do.co/c/710a27a3b3de) using my [referral link](<(https://m.do.co/c/710a27a3b3de)>) and you will get free a **$100 in credit valid for 60 days**
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=710a27a3b3de&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
 
