@@ -11,8 +11,7 @@ h3,
 h4,
 h5,
 h6 {
-  @extend %font-sans;
-
+  font-family: var(--gh-font-heading);
   font-weight: 700;
   line-height: 1.25;
 }
@@ -40,4 +39,3 @@ h5 {
 h6 {
   font-size: $font-size-h6;
 }
-

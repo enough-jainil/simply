@@ -1,5 +1,9 @@
 %font-sans {
-  @apply font-sans;
+  font-family: var(--gh-font-heading);
+}
+
+%font-serif {
+  font-family: var(--gh-font-body);
 }
 
 %inset-image {

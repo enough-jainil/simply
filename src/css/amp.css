@@ -12,7 +12,9 @@
 /* ---------------------------------------------------------- */
 
 /* font default page and titles */
-$primary-font: Whitney SSm A, Whitney SSm B, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+$primary-font: Whitney SSm A, Whitney SSm B, -apple-system, BlinkMacSystemFont,
+  Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue,
+  sans-serif;
 
 /* font for content */
 $secondary-font: charter, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -107,7 +109,12 @@ figcaption {
 /* 05.typography - Titles
 /* ---------------------------------------------------------- */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @extend %primary-font;
 
   color: $title-color;
@@ -118,12 +125,24 @@ h1, h2, h3, h4, h5, h6 {
   word-break: break-word;
 }
 
-h1 { font-size: 2.25rem; }
-h2 { font-size: 1.75rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.375rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1.125rem; }
+h1 {
+  font-size: 2.25rem;
+}
+h2 {
+  font-size: 1.75rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.375rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1.125rem;
+}
 
 strong {
   font-weight: 700;
@@ -147,7 +166,11 @@ hr {
 
 mark {
   background-color: transparent;
-  background-image: linear-gradient(to bottom, rgba(215, 253, 211, 1), rgba(215, 253, 211, 1));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(215, 253, 211, 1),
+    rgba(215, 253, 211, 1)
+  );
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -212,7 +235,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   display: inline-block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   line-height: 1.5;
   margin: 1.25rem 0 0;
@@ -244,7 +268,7 @@ table {
 /* ---------------------------------------------------------- */
 
 .header {
-  box-shadow: 0 0 3px rgba(0, 0, 0, .03), 0 3px 46px rgba(0, 0, 0, .07);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.03), 0 3px 46px rgba(0, 0, 0, 0.07);
 }
 
 .logo-link {
@@ -350,11 +374,13 @@ table {
   word-break: break-word;
 }
 
-.article-body ul, .article-body ol {
+.article-body ul,
+.article-body ol {
   padding-left: 1.25rem;
 }
 
-.article-body ul li, .article-body ol li {
+.article-body ul li,
+.article-body ol li {
   margin-bottom: 5px;
 }
 
@@ -564,13 +590,14 @@ amp-social-share.rounded {
   flex: auto;
   flex-direction: column;
   text-decoration: none;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
   font-size: 1.4rem;
   font-weight: 400;
   box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
   width: 100%;
   max-width: 512px;
-  color: #15212A;
+  color: #15212a;
   background: #fff;
   border-radius: 5px;
   transition: none;
@@ -578,7 +605,7 @@ amp-social-share.rounded {
 }
 
 .kg-nft-metadata {
-  padding: 2.0rem;
+  padding: 2rem;
 }
 
 .kg-nft-image-container {
@@ -601,7 +628,7 @@ amp-social-share.rounded {
   font-size: 1.9rem;
   font-weight: 700;
   margin: 0;
-  color: #15212A;
+  color: #15212a;
 }
 
 .kg-nft-header amp-img {
@@ -616,18 +643,18 @@ amp-social-share.rounded {
 
 .kg-nft-creator {
   font-family: inherit;
-  color: #95A1AD;
+  color: #95a1ad;
 }
 
 .kg-nft-creator span {
   font-weight: 500;
-  color: #15212A;
+  color: #15212a;
 }
 
 .kg-nft-card p.kg-nft-description {
   font-size: 1.4rem;
   line-height: 1.4em;
-  margin: 2.0rem 0 0;
+  margin: 2rem 0 0;
   color: #222;
 }
 
@@ -646,9 +673,9 @@ amp-social-share.rounded {
   display: flex;
   position: static;
   align-items: center;
-  padding: 0 2.0rem;
-  height: 4.0rem;
-  line-height: 4.0rem;
+  padding: 0 2rem;
+  height: 4rem;
+  line-height: 4rem;
   font-size: 1.65rem;
   font-weight: 600;
   text-decoration: none;
@@ -661,7 +688,7 @@ amp-social-share.rounded {
 }
 
 .kg-btn-accent {
-  background-color: var(--ghost-accent-color, #1292EE);
+  background-color: var(--ghost-accent-color, #1292ee);
   color: #fff;
 }
 
@@ -825,7 +852,9 @@ amp-social-share.rounded {
   padding: 0 1.2em;
   height: 2.4em;
   line-height: 1em;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   font-size: 0.95em;
   font-weight: 600;
   text-decoration: none;
@@ -920,4 +949,3 @@ amp-social-share.rounded {
   display: grid;
   grid-template-columns: inherit;
 }
-
