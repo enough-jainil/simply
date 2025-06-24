@@ -1,5 +1,7 @@
 table {
-  @apply text-left font-sans text-sm overflow-x-auto w-auto block max-w-full;
+  @apply text-left text-sm overflow-x-auto w-auto block max-w-full;
+  font-family: var(--gh-font-body);
+  font-weight: normal;
 }
 
 table th {
@@ -8,9 +10,9 @@ table th {
 
 table td {
   @apply py-3 pr-4 whitespace-nowrap border-b border-slate-200;
+  font-weight: normal;
 }
 
 table tr:last-child td {
   @apply border-b-slate-300;
 }
-
