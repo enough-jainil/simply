@@ -158,8 +158,23 @@ function scripts(done) {
 // Image
 async function images(done) {
   const imagemin = (await import("gulp-imagemin")).default;
+  const imageminGifsicle = (await import("imagemin-gifsicle")).default;
+  const imageminMozjpeg = (await import("imagemin-mozjpeg")).default;
+  const imageminOptipng = (await import("imagemin-optipng")).default;
+  const imageminSvgo = (await import("imagemin-svgo")).default;
+
   pump(
-    [src("src/img/**/*.*"), imagemin(), dest("assets/images"), livereload()],
+    [
+      src("src/img/**/*.*"),
+      imagemin([
+        imageminGifsicle(),
+        imageminMozjpeg(),
+        imageminOptipng(),
+        imageminSvgo(),
+      ]),
+      dest("assets/images"),
+      livereload(),
+    ],
     handleError(done)
   );
 }
